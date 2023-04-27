@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>bank.com</title>
+  <link rel="icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <h3 class="navbar-brand">My Bank</h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <h3 class="nav-link" th:text="'Balance: $' + ${totalAmount}"></h3>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+  <h2 class="mb-3">Transfer Money</h2>
+  <form method="post" th:action="@{/transfer}">
+    <div class="mb-3">
+      <label for="to" class="form-label">To Account:</label>
+      <input type="text" class="form-control" id="to" value="Utility Management Company" readonly th:name="to" th:value="'Utility Management Company'">
+    </div>
+    <div class="mb-3">
+      <label for="note" class="form-label">Note:</label>
+      <input type="text" class="form-control" id="note" value="Water Bill" readonly th:name="note" th:value="'Water Bill'">
+    </div>
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount:</label>
+      <input type="text" class="form-control" id="amount" value="$50" th:name="amount">
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm Transfer</button>
+  </form>
+</div>
+
+<div class="container">
+  <h1 class="my-4">Recent Bank Transactions</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>To</th>
+      <th>Amount</th>
+      <th>Note</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="transaction : ${recentTransactions}">
+      <td th:text="${transaction.to}"></td>
+      <td th:text="${transaction.amount}"></td>
+      <td th:text="${transaction.note}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
