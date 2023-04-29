@@ -36,6 +36,6 @@ docker {
 	springBootApplication {
 		baseImage.set("openjdk:17-oracle")
 		ports.set(listOf(9090, 8080))
-		images.set(setOf("csrf-vulnerable-spring-application:latest"))
+		images.set(setOf("skryvets/csrf-vulnerable-spring-application:latest"))
 	}
 }
