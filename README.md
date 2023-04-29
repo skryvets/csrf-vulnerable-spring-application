@@ -7,7 +7,6 @@ This project is a CSRF (Cross-Site Request Forgery) vulnerable web application, 
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
 - [Mitigation Techniques](#mitigation-techniques)
-    - [Same Origin Policy](#same-origin-policy-using-corsconfigurationsource)
     - [SameSite Cookie Attribute for Session ID Cookies](#samesite-cookie-attribute-for-session-id-cookies)
     - [Synchronizer Token Pattern (CSRF Token)](#synchronizer-token-pattern-csrf-token)
 - [Contributing](#contributing)
@@ -35,17 +34,12 @@ To get started, follow these steps:
 
 ## Mitigation Techniques
 
-### Same Origin Policy using CorsConfigurationSource
-
-- To enable the Same Origin Policy using `CorsConfigurationSource`, follow instructions of the comments that starts with --1-- (you can do a global search in your IDE for --1--)
-
 ### SameSite Cookie Attribute for Session ID Cookies
-- Undo Everything for step above
-- To enable SameSite Cookie Attribute for Session ID Cookies, follow instructions of the comments that starts with --2-- (you can do a global search in your IDE for --2--)
+- To enable SameSite Cookie Attribute for Session ID Cookies, follow instructions of the comments that starts with --1-- (you can do a global search in your IDE for --1--)
 
 ### Synchronizer Token Pattern (CSRF Token)
 - Undo Everything for step above
-- To implement Synchronizer Token Pattern, follow instructions of the comments that starts with --3-- (you can do a global search in your IDE for --3--)
+- To implement Synchronizer Token Pattern, follow instructions of the comments that starts with --2-- (you can do a global search in your IDE for --2--)
 
 ## Contributing
 If you'd like to contribute to this project, open issue/submit PR.

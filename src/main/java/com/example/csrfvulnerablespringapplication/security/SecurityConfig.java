@@ -12,33 +12,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    //--1-- Uncomment this bean to enable SOP (Same origin policy) protection
-    /*@Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }*/
-
-    //--1-- Uncomment this bean to enable SOP (Same origin policy) protection
-    //Remove SecurityFilterChain securityFilterChain block below
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource) throws Exception {
-//        http.authorizeHttpRequests().anyRequest().authenticated();
-//        http.cors().configurationSource(corsConfigurationSource);
-//        http.formLogin();
-//        http.httpBasic();
-//        http.userDetailsService(inMemoryUserDetailsManager());
-//        return http.build();
-//    }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests().anyRequest().authenticated();
-//       --3-- Comment this line to enable CSRF token
+//       --2-- Comment this line to enable CSRF token
         http.csrf().disable();
         http.formLogin();
         http.httpBasic();
