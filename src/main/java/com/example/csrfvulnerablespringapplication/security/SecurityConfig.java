@@ -27,8 +27,8 @@ public class SecurityConfig {
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         return new InMemoryUserDetailsManager(
             User.withDefaultPasswordEncoder()
-                        .username("john")
-                        .password("doe")
+                        .username("banker")
+                        .password("money123")
                         .authorities("ROLE_USER")
                         .build());
     }
